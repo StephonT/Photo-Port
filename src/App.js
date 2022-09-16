@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import React, { useState } from 'react';
 import Nav from './components/Nav';
 import About from './components/About';
@@ -6,10 +5,7 @@ import Gallery from './components/Gallery';
 import ContactForm from './components/Contact';
 
 function App() {
-  //to condition what renders based on which menu item the user selects from the navigation bar
-  //set the useState to false to prevent the contact form from showing when the user goes to the homepage
-  const [contactSelected, setContactSelected] = useState(false);
-  const [categories] = useState([
+  const [categories] = useState([ 
     {
       name: 'commercial',
       description: 'Photos of grocery stores, food trucks, and other commercial projects',
@@ -21,6 +17,8 @@ function App() {
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
+  const [contactSelected, setContactSelected] = useState(false);
+
   return (
     <div>
       <Nav
@@ -31,7 +29,6 @@ function App() {
         setContactSelected={setContactSelected}
       ></Nav>
       <main>
-        <div>
         {!contactSelected ? (
           <>
             <Gallery currentCategory={currentCategory}></Gallery>
@@ -40,7 +37,6 @@ function App() {
         ) : (
             <ContactForm></ContactForm>
           )}
-        </div>
       </main>
     </div>
   );

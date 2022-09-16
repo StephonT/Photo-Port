@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 function Nav(props) {
@@ -10,12 +10,6 @@ function Nav(props) {
     setContactSelected,
   } = props;
 
-  //use a Hook to trigger a re-render on a variable value change
-  //The second argument directs the hook to re-render the component on changes to the value of this state. 
-  //if currentCategory changes now, the component will re-render so that the change in document.title will be visible to the user
-  useEffect(() => {
-    document.title = capitalizeFirstLetter(currentCategory.name);
-  }, [currentCategory]);
 
   return (
     <header className="flex-row px-1">
@@ -27,7 +21,7 @@ function Nav(props) {
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
-            <a data-testid="about" href="#about">
+            <a data-testid="about" href="#about" onClick={() => setContactSelected (false)}>
               About me
             </a>
           </li>
