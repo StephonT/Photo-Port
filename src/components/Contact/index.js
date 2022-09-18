@@ -12,30 +12,37 @@ const [formState, setFormState] = useState({ name: '', email: '', message: '' })
 const { name, email, message } = formState;
 const [errorMessage, setErrorMessage] = useState('');
 
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if (!errorMessage) {
+    console.log('Submit Form', formState);
+  }
+};
+
+
 const handleChange = (e) => {
-    if (e.target.name === 'email') {
-      const isValid = validateEmail(e.target.value);
-      if (!isValid) {
-        setErrorMessage('Your email is invalid.');
-      } else {
-        setErrorMessage('');
-      }
+  if (e.target.name === 'email') {
+    const isValid = validateEmail(e.target.value);
+    if (!isValid) {
+      setErrorMessage('Your email is invalid.');
     } else {
-      if (!e.target.value.length) {
-        setErrorMessage(`${e.target.name} is required.`);
-      } else {
-        setErrorMessage('');
-      }
+      setErrorMessage('');
     }
-  };
+  } else {
+    if (!e.target.value.length) {
+      setErrorMessage(`${e.target.name} is required.`);
+    } else {
+      setErrorMessage('');
+    }
+  }
+  if (!errorMessage) {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+    console.log('Handle Form', formState);
+  }
+};
       
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!errorMessage) {
-      setFormState({ [e.target.name]: e.target.value });
-      console.log('Form', formState);
-    }
-  };
+  
 
   return(
     <section>
