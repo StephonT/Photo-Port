@@ -18,7 +18,7 @@
   ## Usage
   This application will allow users view an about me page, send information through a contact form, and view galleries based on their category. When a user clicks on an image, they will be able to view the image in a larger scale.
   <br>
-  Please view the deployed application on <a href="https://stephont.github.io/Photo-Port/" alt="">Github Pages</a>
+  Please view the deployed application on <a href="https://stephont.github.io/Photo-Port/" target="_blank">Github Pages</a>
   <br>
   ![PhotoPort-SS](https://user-images.githubusercontent.com/104699408/192519534-b56efaed-b325-4a1f-ab6d-af996aac7ef1.jpg)
 
